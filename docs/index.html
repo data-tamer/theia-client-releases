@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theia Client - Downloads</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .container { max-width: 640px; width: 100%; padding: 2rem; }
+        h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #f0f6fc; }
+        .subtitle { color: #8b949e; margin-bottom: 2rem; }
+        .section-title { font-size: 1.1rem; color: #f0f6fc; margin: 1.5rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid #21262d; }
+        .download-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; }
+        .download-card h3 { color: #f0f6fc; margin-bottom: 0.5rem; }
+        .meta { color: #8b949e; font-size: 0.875rem; margin-bottom: 1rem; }
+        .meta span { margin-right: 1rem; }
+        a.btn { display: inline-block; background: #238636; color: #fff; padding: 0.5rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.875rem; }
+        a.btn:hover { background: #2ea043; }
+        .usage { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.5rem; margin-top: 2rem; }
+        .usage h3 { color: #f0f6fc; margin-bottom: 1rem; }
+        pre { background: #0d1117; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.8125rem; line-height: 1.6; color: #c9d1d9; }
+        code { font-family: 'SF Mono', 'Fira Code', monospace; }
+        footer { margin-top: 2rem; text-align: center; color: #484f58; font-size: 0.75rem; }
+        footer a { color: #58a6ff; text-decoration: none; }
+        .badge { display: inline-block; background: #1f6feb; color: #fff; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-left: 0.5rem; vertical-align: middle; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Theia Client</h1>
+        <p class="subtitle">Camera stream relay for the Theia CCTV platform. Captures local RTSP streams and connects to the Theia server via an encrypted WireGuard VPN tunnel.</p>
+
+        <p class="meta" style="text-align:center;margin-bottom:24px">
+            Latest version: <strong id="latest-version">…</strong>
+            <span id="release-date" style="color:#888"></span>
+        </p>
+
+        <h2 class="section-title">macOS</h2>
+
+        <div class="download-card">
+            <h3>TheiaClient.dmg <span class="badge">Recommended</span></h3>
+            <div class="meta">
+                <span>macOS ARM64 (Apple Silicon)</span>
+                <span>~32 MB</span>
+                <span id="ver-mac">latest</span>
+            </div>
+            <p class="meta">Native .app with menu bar icon, bundled ffmpeg. Just double-click to run.</p>
+            <p class="meta">Compatible with: MacBook Air/Pro M1-M4, Mac Mini, Mac Studio, iMac</p>
+            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/TheiaClient.dmg">Download DMG</a>
+        </div>
+
+        <h2 class="section-title">Linux</h2>
+
+        <div class="download-card">
+            <h3>theia-client-linux-arm64.tar.gz</h3>
+            <div class="meta">
+                <span>Linux ARM64 (aarch64)</span>
+                <span>~15 MB</span>
+                <span id="ver-arm64">latest</span>
+            </div>
+            <p class="meta">For Raspberry Pi 3/4/5 (64-bit OS), Jetson Nano/Orin, any Linux aarch64</p>
+            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/theia-client-linux-arm64.tar.gz">Download</a>
+        </div>
+
+        <div class="download-card">
+            <h3>theia-client-linux-amd64.tar.gz</h3>
+            <div class="meta">
+                <span>Linux x86-64</span>
+                <span>~16 MB</span>
+                <span id="ver-amd64">latest</span>
+            </div>
+            <p class="meta">For any Linux x86-64 server or desktop</p>
+            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/theia-client-linux-amd64.tar.gz">Download</a>
+        </div>
+
+        <h2 class="section-title">Windows</h2>
+
+        <div class="download-card">
+            <h3>theia-client-windows-amd64.zip</h3>
+            <div class="meta">
+                <span>Windows x86-64</span>
+                <span>~21 MB</span>
+                <span id="ver-win">latest</span>
+            </div>
+            <p class="meta">For Windows 10/11 (64-bit). Runs as a scheduled task with auto-restart.</p>
+            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/theia-client-windows-amd64.zip">Download</a>
+        </div>
+
+        <div class="usage">
+            <h3>Quick Start (Windows)</h3>
+            <pre><code># Extract the zip, then open PowerShell as Administrator
+cd theia-client-windows-amd64
+.\install.ps1
+
+# Opens web UI at http://localhost:8080/setup</code></pre>
+        </div>
+
+        <div class="usage">
+            <h3>Quick Start (Linux)</h3>
+            <pre><code># Download and extract
+tar xzf theia-client-linux-arm64.tar.gz
+cd theia-client-linux-arm64
+
+# Install (creates systemd service)
+sudo ./install.sh
+
+# Open setup in browser
+open http://localhost:8080/setup</code></pre>
+        </div>
+
+        <div class="usage">
+            <h3>Quick Start (macOS)</h3>
+            <pre><code># Open the DMG and drag TheiaClient to Applications
+# Double-click to launch — opens browser automatically
+# Configure via the web UI at http://localhost:8080/setup</code></pre>
+        </div>
+
+        <footer>
+            <a href="https://github.com/data-tamer/theia-client-releases">Theia Client</a> &middot; <a href="https://theia.datatamer.ai">Theia Platform</a>
+        </footer>
+    </div>
+
+    <script>
+    // Fetch the latest release tag and date from the public GitHub API.
+    // This works without auth for public repositories. Cached by the browser
+    // for ~60s; falls back silently if the API is unreachable.
+    (function() {
+        fetch('https://api.github.com/repos/data-tamer/theia-client-releases/releases/latest', { cache: 'force-cache' })
+            .then(r => r.ok ? r.json() : null)
+            .then(rel => {
+                if (!rel || !rel.tag_name) return;
+                const tag = rel.tag_name;
+                const verEl = document.getElementById('latest-version');
+                if (verEl) verEl.textContent = tag;
+                ['ver-mac', 'ver-arm64', 'ver-amd64', 'ver-win'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = tag;
+                });
+                const dateEl = document.getElementById('release-date');
+                if (dateEl && rel.published_at) {
+                    const d = new Date(rel.published_at);
+                    dateEl.textContent = '· released ' + d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+                }
+            })
+            .catch(() => { /* offline or rate-limited; leave the placeholder */ });
+    })();
+    </script>
+</body>
+</html>
