@@ -77,21 +77,26 @@
         <h2 class="section-title">Windows</h2>
 
         <div class="download-card">
-            <h3>theia-client-windows-amd64.exe</h3>
+            <h3>TheiaClient-Windows-Setup.zip <span class="badge">Recommended</span></h3>
             <div class="meta">
                 <span>Windows x86-64</span>
-                <span>~21 MB</span>
+                <span>~18 MB</span>
                 <span id="ver-win">latest</span>
             </div>
-            <p class="meta">For Windows 10/11 (64-bit). Auto-downloads go2rtc on first run.</p>
-            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/theia-client-windows-amd64.exe">Download EXE</a>
+            <p class="meta">For Windows 10/11 (64-bit). Includes go2rtc, installs as a Windows service with auto-start.</p>
+            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/TheiaClient-Windows-Setup.zip">Download Installer</a>
         </div>
 
         <div class="usage">
             <h3>Quick Start (Windows)</h3>
-            <pre><code># Download the exe and run it
-# go2rtc will be auto-downloaded on first start
-# Opens web UI at http://localhost:8080/setup</code></pre>
+            <pre><code># 1. Extract the zip
+# 2. Right-click install.ps1 > Run with PowerShell (as Admin)
+# 3. Opens http://localhost:8080/setup automatically
+
+# Service management:
+#   Start-Service TheiaClient
+#   Stop-Service TheiaClient
+#   Get-Service TheiaClient</code></pre>
         </div>
 
         <div class="usage">
