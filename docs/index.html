@@ -87,36 +87,33 @@
             <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/TheiaClient-Windows-Setup.zip">Download Installer</a>
         </div>
 
-        <div class="usage">
-            <h3>Quick Start (Windows)</h3>
-            <pre><code># 1. Extract the zip
-# 2. Right-click install.ps1 > Run with PowerShell (as Admin)
-# 3. Opens http://localhost:8080/setup automatically
+        <h2 class="section-title">One-Command Install</h2>
 
-# Service management:
-#   Start-Service TheiaClient
-#   Stop-Service TheiaClient
-#   Get-Service TheiaClient</code></pre>
+        <div class="download-card">
+            <h3>Linux / macOS / Raspberry Pi</h3>
+            <pre><code>curl -fsSL https://data-tamer.github.io/theia-client-releases/install.sh | sh</code></pre>
+        </div>
+
+        <div class="download-card">
+            <h3>Windows (PowerShell as Admin)</h3>
+            <pre><code>irm https://data-tamer.github.io/theia-client-releases/install.ps1 | iex</code></pre>
         </div>
 
         <div class="usage">
-            <h3>Quick Start (Linux)</h3>
-            <pre><code># Download and extract
-tar xzf theia-client-linux-arm64.tar.gz
-cd theia-client-linux-arm64
+            <h3>What happens</h3>
+            <pre><code># 1. Detects your OS and architecture
+# 2. Downloads the latest theia binary
+# 3. Installs go2rtc for camera streaming
+# 4. Creates a system service (auto-start on boot)
+# 5. Opens http://localhost:8080/setup
 
-# Install (creates systemd service)
-sudo ./install.sh
-
-# Open setup in browser
-open http://localhost:8080/setup</code></pre>
-        </div>
-
-        <div class="usage">
-            <h3>Quick Start (macOS)</h3>
-            <pre><code># Open the DMG and drag TheiaClient to Applications
-# Double-click to launch — opens browser automatically
-# Configure via the web UI at http://localhost:8080/setup</code></pre>
+# After install, manage with:
+theia status          # check status
+theia cameras list    # list cameras
+theia cameras add "Front Door" "rtsp://user:pass@192.168.1.10/stream"
+theia logs -f         # follow logs
+theia debug           # run diagnostics
+theia update          # check for updates</code></pre>
         </div>
 
         <footer>
