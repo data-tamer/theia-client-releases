@@ -77,14 +77,24 @@
         <h2 class="section-title">Windows</h2>
 
         <div class="download-card">
-            <h3>theia-client-windows-amd64.zip <span class="badge">Recommended</span></h3>
+            <h3>TheiaClient-Setup.exe <span class="badge">Recommended</span></h3>
             <div class="meta">
-                <span>Windows x86-64</span>
-                <span>~19 MB</span>
+                <span>Windows x86-64 wizard installer</span>
+                <span>~18 MB</span>
                 <span id="ver-win">latest</span>
             </div>
-            <p class="meta">For Windows 10/11 (64-bit). Includes go2rtc, installs as a Windows service with auto-start.</p>
-            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/theia-client-windows-amd64.zip">Download Installer</a>
+            <p class="meta">For Windows 10/11 (64-bit). Wizard installer that registers Theia as a startup task, opens the firewall ports, and installs go2rtc. Includes a proper uninstaller.</p>
+            <a id="dl-win-installer" class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/TheiaClient-Setup.exe">Download Installer</a>
+        </div>
+
+        <div class="download-card">
+            <h3>theia-client-windows-amd64.zip</h3>
+            <div class="meta">
+                <span>Manual / scripted install</span>
+                <span>~19 MB</span>
+            </div>
+            <p class="meta">Zipped binaries for unattended installs. Run <code>install.ps1</code> as Administrator.</p>
+            <a class="btn" href="https://github.com/data-tamer/theia-client-releases/releases/latest/download/theia-client-windows-amd64.zip">Download Zip</a>
         </div>
 
         <h2 class="section-title">One-Command Install</h2>
@@ -137,6 +147,13 @@ theia update          # check for updates</code></pre>
                     const el = document.getElementById(id);
                     if (el) el.textContent = tag;
                 });
+                // Wizard installer filename includes the version, so fix
+                // the link's href once we know the tag (e.g. v1.10.13 -> 1.10.13).
+                const ver = tag.replace(/^v/, '');
+                const winBtn = document.getElementById('dl-win-installer');
+                if (winBtn) {
+                    winBtn.href = `https://github.com/data-tamer/theia-client-releases/releases/download/${tag}/TheiaClient-Setup-${ver}.exe`;
+                }
                 const dateEl = document.getElementById('release-date');
                 if (dateEl && rel.published_at) {
                     const d = new Date(rel.published_at);
